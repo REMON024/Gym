@@ -123,6 +123,7 @@ export class MemberRegistrationComponent implements OnInit {
     }
 
     GetAmount(PlanID: number, SchemeID: number) {
+        console.log("Hi",PlanID,SchemeID);
         if (PlanID != null && SchemeID != null) {
             this._memberregistration.GetAmount(PlanID, SchemeID).subscribe(
                 amount => {

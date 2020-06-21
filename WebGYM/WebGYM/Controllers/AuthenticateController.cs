@@ -10,9 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using WebGYM.Common;
-using WebGYM.Interface;
-using WebGYM.Models;
-using WebGYM.ViewModels;
+using GYM.BLL;
+using GYM.COMMON.Model.ViewModel;
 
 namespace WebGYM.Controllers
 {
@@ -20,9 +19,9 @@ namespace WebGYM.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly AppSettings _appSettings;
+        private readonly Models.AppSettings _appSettings;
         private readonly IUsers _users;
-        public AuthenticateController(IOptions<AppSettings> appSettings, IUsers users)
+        public AuthenticateController(IOptions<Models.AppSettings> appSettings, IUsers users)
         {
             _users = users;
             _appSettings = appSettings.Value;

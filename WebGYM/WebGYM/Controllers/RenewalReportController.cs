@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebGYM.Interface;
-using WebGYM.ViewModels;
+using GYM.BLL;
+using GYM.COMMON.Model.ViewModel;
+
 
 namespace WebGYM.Controllers
 {
@@ -22,18 +23,18 @@ namespace WebGYM.Controllers
         }
       
         // POST: api/RenewalReport
-        [HttpPost]
-        public List<RenewalReportViewModel> Post([FromBody] RenewalReportRequestModel value)
-        {
-            try
-            {
-                return _reports.Get_RenewalReport(value);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //[HttpPost]
+        //public List<RenewalReportViewModel> Post([FromBody] RenewalReportRequestModel value)
+        //{
+        //    try
+        //    {
+        //        return _reports.Get_RenewalReport(value);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
     }
 }

@@ -19,11 +19,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using WebGYM.Common;
-using WebGYM.Concrete;
-using WebGYM.Interface;
-using WebGYM.Mappings;
-using WebGYM.Models;
+using GYM.DAL;
+using GYM.BLL;
+
 
 namespace WebGYM
 {
@@ -52,10 +50,10 @@ namespace WebGYM
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection, b => b.UseRowNumberForPaging()));
 
             var appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
+            services.Configure<Models.AppSettings>(appSettingsSection);
 
             // configure jwt authentication
-            var appSettings = appSettingsSection.Get<AppSettings>();
+            var appSettings = appSettingsSection.Get<Models.AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             services.AddAuthentication(x =>
                 {
@@ -98,12 +96,12 @@ namespace WebGYM
 
             // Start Registering and Initializing AutoMapper
 
-            Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
+            Mapper.Initialize(cfg => cfg.AddProfile<Mappings.MappingProfile>());
             services.AddAutoMapper();
 
             // End Registering and Initializing AutoMapper
 
-            services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); })
+            services.AddMvc(options => { options.Filters.Add(typeof(Common.CustomExceptionFilterAttribute)); })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddJsonOptions(options =>
             {

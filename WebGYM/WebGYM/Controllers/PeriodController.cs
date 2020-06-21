@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebGYM.Interface;
-using WebGYM.Models;
+using GYM.BLL;
+using GYM.COMMON.Model.DTO;
 
 namespace WebGYM.Controllers
 {

@@ -7,10 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using WebGYM.Common;
-using WebGYM.Interface;
-using WebGYM.Models;
-using WebGYM.ViewModels;
+using GYM.BLL;
+using GYM.COMMON.Model.ViewModel;
+using GYM.COMMON.Library;
 
 namespace WebGYM.Controllers
 {

@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebGYM.Interface;
-using WebGYM.ViewModels;
+using GYM.BLL;
+using GYM.COMMON.Model.ViewModel;
+using GYM.COMMON.Model.DTO;
 
 namespace WebGYM.Controllers
 {
@@ -22,10 +23,10 @@ namespace WebGYM.Controllers
         }
 
         // POST: api/YearwiseReport
-        [HttpPost]
-        public List<YearwiseReportViewModel> Post([FromBody] YearWiseRequestModel value)
-        {
-            return _reports.Get_YearwisePayment_details(value.YearID);
-        }
+        //[HttpPost]
+        //public List<YearwiseReportViewModel> Post([FromBody] YearWiseRequestModel value)
+        //{
+        //    return _reports.Get_YearwisePayment_details(value.YearID);
+        //}
     }
 }

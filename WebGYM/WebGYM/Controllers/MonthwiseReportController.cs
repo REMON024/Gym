@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebGYM.Interface;
-using WebGYM.ViewModels;
+using GYM.BLL;
+using GYM.COMMON.Model.ViewModel;
 
 namespace WebGYM.Controllers
 {
@@ -23,18 +23,18 @@ namespace WebGYM.Controllers
         }
 
         // POST: api/MonthwiseReport
-        [HttpPost]
-        public List<MonthWiseReportViewModel> Post([FromBody] MonthwiseRequestModel value)
-        {
-            try
-            {
-                return _reports.Get_MonthwisePayment_details(value.MonthId);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //[HttpPost]
+        //public List<MonthWiseReportViewModel> Post([FromBody] MonthwiseRequestModel value)
+        //{
+        //    try
+        //    {
+        //        return _reports.Get_MonthwisePayment_details(value.MonthId);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     
     }
 }
