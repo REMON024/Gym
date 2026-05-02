@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+body {
+  background: #030712;
+  color: #f9fafb;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Markdown preview styles */
+.markdown-preview h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #fff; border-bottom: 1px solid #374151; padding-bottom: 0.5rem; }
+.markdown-preview h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #fff; }
+.markdown-preview h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; color: #e5e7eb; }
+.markdown-preview p { margin-bottom: 0.75rem; color: #d1d5db; line-height: 1.7; }
+.markdown-preview ul { margin-bottom: 0.75rem; margin-left: 1.5rem; list-style-type: disc; color: #d1d5db; }
+.markdown-preview ol { margin-bottom: 0.75rem; margin-left: 1.5rem; list-style-type: decimal; color: #d1d5db; }
+.markdown-preview li { margin-bottom: 0.25rem; }
+.markdown-preview code { background: #1f2937; color: #34d399; padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-size: 0.875rem; font-family: var(--font-geist-mono), monospace; }
+.markdown-preview pre { background: #111827; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; overflow-x: auto; border: 1px solid #374151; }
+.markdown-preview pre code { background: transparent; padding: 0; color: #34d399; }
+.markdown-preview a { color: #60a5fa; text-decoration: underline; }
+.markdown-preview a:hover { color: #93c5fd; }
+.markdown-preview blockquote { border-left: 4px solid #4b5563; padding-left: 1rem; color: #9ca3af; font-style: italic; margin-bottom: 0.75rem; }
+.markdown-preview table { width: 100%; margin-bottom: 1rem; border-collapse: collapse; }
+.markdown-preview th { border: 1px solid #374151; padding: 0.5rem 0.75rem; background: #1f2937; color: #fff; font-weight: 600; }
+.markdown-preview td { border: 1px solid #374151; padding: 0.5rem 0.75rem; color: #d1d5db; }
+.markdown-preview hr { border-color: #374151; margin: 1rem 0; }
+.markdown-preview strong { font-weight: 700; color: #fff; }
+.markdown-preview em { font-style: italic; color: #d1d5db; }
+.markdown-preview img { max-width: 100%; border-radius: 0.5rem; }
