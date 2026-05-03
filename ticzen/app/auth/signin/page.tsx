@@ -12,95 +12,95 @@ export default function SignInPage() {
   const [remember, setRemember] = useState(false);
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left – dark branding panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gray-950 flex-col items-center justify-center text-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-[calc(100vh-60px)] flex">
+      {/* ── Left dark panel ───────────────────────────────────── */}
+      <div className="hidden lg:flex lg:w-1/2 bg-black flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-white/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-white/12 rounded-full blur-2xl pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col items-center text-center px-12">
-          <p className="text-lg font-semibold text-white/70 mb-4">Welcome back to</p>
-          <div className="bg-white text-gray-900 font-black text-3xl tracking-tight px-6 py-3 rounded-xl mb-6">
-            TIC<span className="bg-gray-900 text-white px-1 rounded">ZEN</span>
+        <div className="relative z-10 flex flex-col items-center text-center px-14 max-w-md">
+          <p className="text-white/60 text-[14px] font-medium mb-5">Welcome back to</p>
+          <div className="bg-white px-8 py-4 rounded-xl mb-7 inline-block">
+            <span className="font-extrabold text-3xl tracking-tight leading-none text-gray-900">
+              TIC<span className="inline-block bg-gray-900 text-white px-1 py-0.5 mx-0.5 rounded-sm">ZE</span>N
+            </span>
           </div>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-10">
-            Sign in to continue discovering and booking amazing events near you. Your tickets and order history are waiting.
+          <p className="text-gray-400 text-[13px] leading-relaxed mb-10">
+            Sign in to continue discovering and booking amazing events near you.
+            Your tickets and order history are waiting.
           </p>
           <div className="flex items-center gap-2">
             <div className="flex -space-x-2">
               {[5, 6, 7].map((n) => (
-                <Image key={n} src={`https://i.pravatar.cc/32?img=${n}`} alt="" width={32} height={32} className="rounded-full border-2 border-gray-900" />
+                <Image key={n} src={`https://i.pravatar.cc/32?img=${n}`} alt=""
+                  width={32} height={32} className="rounded-full border-2 border-black" />
               ))}
             </div>
-            <span className="text-sm text-gray-400 ml-1">11k members</span>
+            <span className="text-gray-400 text-[13px] ml-1">11k members</span>
           </div>
         </div>
-
-        <p className="absolute bottom-6 text-xs text-gray-600">Copyright © 2026 Design by CODEZEN</p>
+        <p className="absolute bottom-5 text-[11px] text-gray-600">Copyright © 2026 Design by CODEZEN</p>
       </div>
 
-      {/* Right – sign in form */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-sm">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-black text-gray-900 mb-1">Sign in</h1>
-            <p className="text-sm text-gray-500">Sign in to enjoy the features of TicZen</p>
+      {/* ── Right form panel ──────────────────────────────────── */}
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-white">
+        <div className="w-full max-w-[360px]">
+          <div className="text-center mb-7">
+            <h1 className="text-[24px] font-bold text-gray-900 mb-1">Sign in</h1>
+            <p className="text-[13px] text-gray-500">Sign in to enjoy the features of TicZen</p>
           </div>
 
           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div className="relative">
-              <label className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500"
-                placeholder="you@example.com"
-              />
+            <div className="relative border border-gray-300 rounded-xl">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-[11px] text-gray-400 font-medium">
+                Email
+              </label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 text-[13px] text-gray-800 outline-none rounded-xl bg-transparent"
+                placeholder="you@example.com" />
             </div>
 
-            <div className="relative">
-              <input
-                type={showPass ? "text" : "password"}
-                value={password}
+            <div className="relative border border-gray-300 rounded-xl">
+              <input type={showPass ? "text" : "password"} value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 pr-10"
-                placeholder="Password"
-              />
-              <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                className="w-full px-4 py-3 text-[13px] text-gray-800 outline-none rounded-xl bg-transparent pr-10"
+                placeholder="Password" />
+              <button type="button" onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                 {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={remember} onChange={() => setRemember(!remember)} className="rounded border-gray-300" />
-                <span className="text-sm text-gray-600">Remember me</span>
+              <label className="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" checked={remember} onChange={() => setRemember(!remember)}
+                  className="w-4 h-4 rounded border-gray-300 accent-gray-900" />
+                <span className="text-[13px] text-gray-600">Remember me</span>
               </label>
-              <Link href="#" className="text-sm text-gray-700 underline">Forgot password?</Link>
+              <Link href="#" className="text-[13px] text-gray-700 underline font-medium">Forgot password?</Link>
             </div>
 
-            <p className="text-xs text-gray-400">
+            <p className="text-[12px] text-gray-400 leading-relaxed">
               By signing in I agree to the{" "}
-              <Link href="#" className="text-gray-700 underline">Terms and Conditions</Link>
+              <Link href="#" className="text-gray-700 underline font-medium">Terms and Conditions</Link>
               {" "}and{" "}
-              <Link href="#" className="text-gray-700 underline">Privacy Policy</Link>.
+              <Link href="#" className="text-gray-700 underline font-medium">Privacy Policy</Link>.
             </p>
 
-            <button
-              type="submit"
-              className="w-full bg-gray-900 text-white font-semibold py-3 rounded-xl hover:bg-black transition-colors"
-            >
+            <button type="submit"
+              className="w-full bg-gray-900 text-white font-semibold py-3 rounded-xl hover:bg-black transition-colors text-[14px]">
               Sign in
             </button>
           </form>
 
-          <div className="flex items-center gap-3 my-4">
+          <div className="flex items-center gap-3 my-5">
             <div className="flex-1 h-px bg-gray-200" />
-            <span className="text-xs text-gray-400">or</span>
+            <span className="text-[12px] text-gray-400">or</span>
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          <button className="w-full border border-gray-200 rounded-xl py-3 text-sm font-medium text-gray-700 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors">
+          <button className="w-full border border-gray-200 rounded-xl py-3 text-[13px] font-medium text-gray-700
+            flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors">
             <svg width="18" height="18" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -110,9 +110,9 @@ export default function SignInPage() {
             Continue with Google
           </button>
 
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-[13px] text-gray-500 mt-6">
             Don&apos;t have an account?{" "}
-            <Link href="/auth/signup" className="text-gray-900 font-semibold underline">Sign up</Link>
+            <Link href="/auth/signup" className="text-gray-900 font-bold underline">Sign up</Link>
           </p>
         </div>
       </div>

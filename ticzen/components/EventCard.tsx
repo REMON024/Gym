@@ -9,48 +9,54 @@ interface EventCardProps {
 }
 
 export default function EventCard({ event, variant = "default" }: EventCardProps) {
+  const imgH = variant === "compact" ? 150 : 170;
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
+    <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 group">
       {/* Image */}
-      <div className="relative overflow-hidden" style={{ height: variant === "compact" ? 160 : 180 }}>
+      <div className="relative overflow-hidden" style={{ height: imgH }}>
         <Image
           src={event.image}
           alt={event.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {/* Date badge */}
-        <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+        <span className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">
           {event.dateShort}
-        </div>
+        </span>
         {/* Free badge */}
         {event.isFree && (
-          <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+          <span className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">
             FREE
-          </div>
+          </span>
         )}
       </div>
 
-      {/* Content */}
+      {/* Body */}
       <div className="p-4">
-        <p className="text-xs text-gray-500 mb-1">{event.time}</p>
-        <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-2 line-clamp-2">{event.title}</h3>
-        <div className="flex items-center gap-1 text-xs text-gray-500 mb-1">
-          <MapPin size={11} className="flex-shrink-0" />
-          <span className="truncate">{event.location}</span>
+        <p className="text-[11px] text-gray-400 mb-1 font-medium">{event.time}</p>
+        <h3 className="font-semibold text-gray-900 text-[13px] leading-snug mb-2 line-clamp-2">{event.title}</h3>
+
+        <div className="space-y-1 mb-3">
+          <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
+            <MapPin size={11} className="flex-shrink-0 text-gray-400" />
+            <span className="truncate">{event.location}</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
+            <Users size={11} className="flex-shrink-0 text-gray-400" />
+            <span>{event.attendees} Attendees</span>
+          </div>
         </div>
-        <div className="flex items-center gap-1 text-xs text-gray-500 mb-3">
-          <Users size={11} className="flex-shrink-0" />
-          <span>{event.attendees} Attendees</span>
-        </div>
-        <div className="flex items-center justify-between">
+
+        <div className="flex items-center justify-between pt-2 border-t border-gray-50">
           <span className="font-bold text-gray-900 text-sm">
             {event.isFree ? "FREE" : `৳${event.price.toLocaleString()}`}
           </span>
           <Link
             href={`/events/${event.id}`}
-            className="bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-full hover:bg-black transition-colors"
+            className="text-[11px] font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full hover:bg-black transition-colors"
           >
             View Details
           </Link>
